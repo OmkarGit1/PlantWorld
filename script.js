@@ -7,6 +7,11 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
+// hamburger animation
+// document.querySelector(".hamburger").addEventListener("click", function() {
+//     document.querySelector(".nav-links").classList.toggle("active");
+// });
+
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

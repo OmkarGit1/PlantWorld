@@ -64,6 +64,10 @@ body {
     list-style: none;
 }
 
+.nav-links.active {
+    display: block;
+}
+
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
@@ -80,6 +84,92 @@ body {
     display: none;
     cursor: pointer;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /* Hide nav menu initially */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: var(--background-light);
+        width: 220px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 999;
+        border-radius: 6px;
+    }
+
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block;
+        position: absolute; /* FIX alignment */
+        right: 20px;        /* Adjust horizontally */
+        top: 20px;          /* Adjust vertically */
+        cursor: pointer;
+        z-index: 2000;      /* Keep above menu */
+    }
+
+    /* Hamburger bars */
+    .hamburger span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hamburger turns into 'X' */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Resize hero heading */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Stack about + contact sections */
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        order: -1;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 
@@ -452,52 +542,6 @@ body {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--primary-color);
-        margin: 5px 0;
-        transition: all 0.3s ease;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        order: -1;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 
 /* Plant care tips section */
